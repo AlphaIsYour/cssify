@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const isGithubPages = process.env.GITHUB_PAGES === "true";
-const basePath = isGithubPages ? "/eno-css-playground" : "";
+const repoName = process.env.GITHUB_REPOSITORY
+  ? `/${process.env.GITHUB_REPOSITORY.split("/")[1]}`
+  : "/cssify";
+const basePath = isGithubPages ? repoName : "";
 
 const nextConfig: NextConfig = {
   output: "export",

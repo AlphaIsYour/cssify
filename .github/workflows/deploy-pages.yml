@@ -36,6 +36,7 @@ jobs:
       - name: Build static export
         env:
           GITHUB_PAGES: "true"
+          GITHUB_REPOSITORY: ${{ github.repository }}
         run: npm run build
 
       - name: Upload Pages Artifact
