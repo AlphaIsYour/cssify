@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask a Question
+    url: https://github.com/AlphaIsYour/eno-css-playground/issues/new?title=question:+
+    about: Ask for guidance on using or contributing to Eno CSS Playground.

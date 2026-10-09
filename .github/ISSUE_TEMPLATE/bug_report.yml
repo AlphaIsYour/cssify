@@ -1,0 +1,63 @@
+name: Bug Report
+description: Create a report to help us reproduce and fix a bug in Eno CSS Playground.
+title: "fix: [Short summary of the bug]"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report an issue! Please provide as much detail as possible.
+  - type: input
+    id: generator
+    attributes:
+      label: Affected Generator / Page
+      description: Which page or generator does this bug occur on? (e.g., Flexbox, Box Shadow, Homepage, Navigation)
+      placeholder: "e.g., /box-shadow or /flexbox"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can someone reproduce this behavior?
+      value: |
+        1. Go to '...'
+        2. Adjust control '...' to '...'
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen instead?
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or Screen Recordings
+      description: If applicable, add screenshots or GIF to help explain the problem.
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser & OS
+      description: Which browser and operating system were you using?
+      multiple: true
+      options:
+        - Chrome / Chromium
+        - Firefox
+        - Safari
+        - Edge
+        - Windows
+        - macOS
+        - Linux
+        - Mobile (iOS / Android)

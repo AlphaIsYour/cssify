@@ -1,10 +1,33 @@
 import Link from "next/link";
+import {
+  Columns3,
+  LayoutGrid,
+  Layers,
+  Type,
+  Palette,
+  Sparkles,
+  RotateCw,
+  Timer,
+  Shapes,
+  CaseSensitive,
+  Ruler,
+  LucideIcon,
+} from "lucide-react";
 
-const tools = [
+interface ToolItem {
+  name: string;
+  href: string;
+  icon: LucideIcon;
+  desc: string;
+  color: string;
+  category: string;
+}
+
+const tools: ToolItem[] = [
   {
     name: "Flexbox Generator",
     href: "/flexbox",
-    icon: "⊞",
+    icon: Columns3,
     desc: "Visual flex container and item controls with alignment, direction, wrapping, and gap presets.",
     color: "from-blue-500 to-cyan-500",
     category: "Layout",
@@ -12,7 +35,7 @@ const tools = [
   {
     name: "CSS Grid Generator",
     href: "/grid",
-    icon: "⊞",
+    icon: LayoutGrid,
     desc: "Build grid layouts visually with template columns, rows, gaps, and area placement.",
     color: "from-violet-500 to-purple-500",
     category: "Layout",
@@ -20,7 +43,7 @@ const tools = [
   {
     name: "Box Shadow Generator",
     href: "/box-shadow",
-    icon: "□",
+    icon: Layers,
     desc: "Design layered box shadows with live preview, inset toggle, and spread controls.",
     color: "from-orange-500 to-red-500",
     category: "Effects",
@@ -28,7 +51,7 @@ const tools = [
   {
     name: "Text Shadow Generator",
     href: "/text-shadow",
-    icon: "A",
+    icon: Type,
     desc: "Create text shadow effects with blur, color, and multi-layer support.",
     color: "from-pink-500 to-rose-500",
     category: "Effects",
@@ -36,7 +59,7 @@ const tools = [
   {
     name: "Gradient Generator",
     href: "/gradient",
-    icon: "◆",
+    icon: Palette,
     desc: "Build linear, radial, and conic gradients with color stops and angle controls.",
     color: "from-emerald-500 to-teal-500",
     category: "Effects",
@@ -44,7 +67,7 @@ const tools = [
   {
     name: "CSS Filter Generator",
     href: "/filter",
-    icon: "◎",
+    icon: Sparkles,
     desc: "Apply blur, brightness, contrast, saturate, hue-rotate and more with live preview.",
     color: "from-amber-500 to-yellow-500",
     category: "Effects",
@@ -52,7 +75,7 @@ const tools = [
   {
     name: "Transform Generator",
     href: "/transform",
-    icon: "⟲",
+    icon: RotateCw,
     desc: "Combine translate, rotate, scale, and skew transforms with 2D/3D preview.",
     color: "from-indigo-500 to-blue-500",
     category: "Motion",
@@ -60,7 +83,7 @@ const tools = [
   {
     name: "Transition Timing",
     href: "/transition",
-    icon: "→",
+    icon: Timer,
     desc: "Visualize easing curves, compare timing functions, and generate transition CSS.",
     color: "from-fuchsia-500 to-pink-500",
     category: "Motion",
@@ -68,7 +91,7 @@ const tools = [
   {
     name: "Border Radius",
     href: "/border-radius",
-    icon: "◔",
+    icon: Shapes,
     desc: "Craft complex border-radius shapes with individual corner controls and presets.",
     color: "from-lime-500 to-green-500",
     category: "Shapes",
@@ -76,7 +99,7 @@ const tools = [
   {
     name: "Typography Scale",
     href: "/typography",
-    icon: "T",
+    icon: CaseSensitive,
     desc: "Generate fluid typography scales using clamp() for responsive font sizing.",
     color: "from-sky-500 to-blue-500",
     category: "Typography",
@@ -84,7 +107,7 @@ const tools = [
   {
     name: "Spacing System",
     href: "/spacing",
-    icon: "⊞",
+    icon: Ruler,
     desc: "Design and visualize spacing scales for consistent layout rhythm.",
     color: "from-slate-500 to-gray-500",
     category: "Systems",
@@ -112,7 +135,7 @@ export default function HomePage() {
         <div className="flex items-center justify-center gap-3 pt-2">
           <Link
             href="/flexbox"
-            className="px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity"
+            className="px-6 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:opacity-90 transition-opacity shadow-sm"
           >
             Start Building →
           </Link>
@@ -132,7 +155,7 @@ export default function HomePage() {
           { title: "Copy-Ready Code", desc: "Production CSS output with one-click copy", icon: "📋" },
           { title: "Learn by Doing", desc: "Built-in explanations and preset examples", icon: "📚" },
         ].map((f) => (
-          <div key={f.title} className="p-4 rounded-xl border border-border bg-card">
+          <div key={f.title} className="p-4 rounded-xl border border-border bg-card shadow-xs">
             <div className="text-2xl mb-2">{f.icon}</div>
             <div className="font-medium text-sm">{f.title}</div>
             <div className="text-xs text-muted-foreground mt-1">{f.desc}</div>
@@ -152,29 +175,32 @@ export default function HomePage() {
                 {cat}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {catTools.map((tool) => (
-                  <Link
-                    key={tool.href}
-                    href={tool.href}
-                    className="group p-4 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all"
-                  >
-                    <div className="flex items-start gap-3">
-                      <div
-                        className={`w-10 h-10 rounded-lg bg-gradient-to-br ${tool.color} flex items-center justify-center text-white text-lg shrink-0`}
-                      >
-                        {tool.icon}
-                      </div>
-                      <div className="min-w-0">
-                        <div className="font-medium text-sm group-hover:text-primary transition-colors">
-                          {tool.name}
+                {catTools.map((tool) => {
+                  const Icon = tool.icon;
+                  return (
+                    <Link
+                      key={tool.href}
+                      href={tool.href}
+                      className="group p-4 rounded-xl border border-border bg-card hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all"
+                    >
+                      <div className="flex items-start gap-3.5">
+                        <div
+                          className={`w-10 h-10 rounded-lg bg-gradient-to-br ${tool.color} flex items-center justify-center text-white shrink-0 shadow-xs`}
+                        >
+                          <Icon className="w-5 h-5" />
                         </div>
-                        <div className="text-xs text-muted-foreground mt-1 line-clamp-2">
-                          {tool.desc}
+                        <div className="min-w-0">
+                          <div className="font-medium text-sm group-hover:text-primary transition-colors">
+                            {tool.name}
+                          </div>
+                          <div className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                            {tool.desc}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           );
@@ -184,7 +210,7 @@ export default function HomePage() {
       {/* Footer */}
       <div className="text-center py-8 border-t border-border">
         <p className="text-sm text-muted-foreground">
-          Built with Next.js, TypeScript & Tailwind CSS. Open source and free.
+          Built with Next.js, TypeScript & Tailwind CSS. Open source and free under MIT License.
         </p>
       </div>
     </div>
