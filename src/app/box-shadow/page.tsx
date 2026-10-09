@@ -24,7 +24,7 @@ const presets = [
   { name: "Large", layers: [{ ...defaultShadow, x: 0, y: 10, blur: 30, spread: 0, opacity: 20 }] },
   { name: "Neumorphism", layers: [{ ...defaultShadow, x: -5, y: -5, blur: 10, spread: 0, color: "#ffffff", opacity: 50 }, { ...defaultShadow, x: 5, y: 5, blur: 10, spread: 0, opacity: 25 }] },
   { name: "Inset", layers: [{ ...defaultShadow, x: 0, y: 2, blur: 8, spread: 0, opacity: 15, inset: true }] },
-  { name: "Neon Glow", layers: [{ ...defaultShadow, x: 0, y: 0, blur: 20, spread: 5, color: "#6366f1", opacity: 60 }] },
+  { name: "Neon Glow", layers: [{ ...defaultShadow, x: 0, y: 0, blur: 20, spread: 5, color: "#81a6c6", opacity: 60 }] },
   { name: "Layered", layers: [{ ...defaultShadow, x: 0, y: 1, blur: 2, spread: 0, opacity: 10 }, { ...defaultShadow, x: 0, y: 4, blur: 8, spread: 0, opacity: 10 }, { ...defaultShadow, x: 0, y: 12, blur: 24, spread: 0, opacity: 10 }] },
 ];
 

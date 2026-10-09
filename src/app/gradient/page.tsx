@@ -24,9 +24,9 @@ export default function GradientPage() {
   const [gradientType, setGradientType] = useState("linear");
   const [angle, setAngle] = useState(135);
   const [stops, setStops] = useState<ColorStop[]>([
-    { color: "#6366f1", position: 0 },
-    { color: "#a855f7", position: 50 },
-    { color: "#ec4899", position: 100 },
+    { color: "#81a6c6", position: 0 },
+    { color: "#aacddc", position: 50 },
+    { color: "#f3e3d0", position: 100 },
   ]);
   const [activePreset, setActivePreset] = useState<string | null>("Sunset");
 

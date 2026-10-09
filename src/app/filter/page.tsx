@@ -110,7 +110,7 @@ export default function FilterPage() {
                 className="w-full h-[300px]"
                 style={{
                   filter: cssValue,
-                  background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                  background: "linear-gradient(135deg, #81a6c6 0%, #aacddc 50%, #d2c4b4 100%)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",

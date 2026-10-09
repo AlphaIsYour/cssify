@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { Sidebar } from "@/components/Sidebar";
+import { AppShell } from "@/components/AppShell";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 const inter = Inter({
@@ -15,32 +15,40 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Eno CSS Playground — Visual CSS Generators & Learning Lab",
+  title: "CSSify — The Visual CSS Studio for Modern Frontend Developers",
   description:
-    "A practical toolkit for frontend developers and students. Visual generators for Flexbox, Grid, shadows, gradients, transforms, and more with live preview and code output.",
+    "Design production-ready CSS visually with live interactive preview and instant copy-ready code. 11 production-grade generators for Flexbox, Grid, 3D Transforms, Box Shadows, Gradients, and Fluid Typography.",
   keywords: [
     "CSS",
-    "Flexbox",
-    "Grid",
-    "box-shadow",
-    "gradient",
-    "generator",
-    "playground",
-    "frontend",
-    "learning",
+    "CSSify",
+    "Visual CSS Generator",
+    "Flexbox Studio",
+    "CSS Grid Builder",
+    "Box Shadow Generator",
+    "Fluid Typography clamp",
+    "Tailwind CSS",
+    "SaaS CSS Tool",
   ],
+  icons: {
+    icon: [
+      { url: "favicon.ico" },
+      { url: "favicon.ico", sizes: "any" },
+    ],
+    shortcut: "favicon.ico",
+    apple: "favicon.ico",
+  },
   openGraph: {
-    title: "Eno CSS Playground — Visual CSS Generators & Learning Lab",
+    title: "CSSify — The Visual CSS Studio",
     description:
-      "A practical toolkit for frontend developers and students. Visual generators for Flexbox, Grid, shadows, gradients, transforms, and more with live preview and code output.",
+      "Interactive studio for Flexbox, CSS Grid, 3D Transforms, Box Shadows, Gradients, and Fluid Typography with live preview and production-ready code output.",
     type: "website",
-    siteName: "Eno CSS Playground",
+    siteName: "CSSify",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Eno CSS Playground — Visual CSS Generators & Learning Lab",
+    title: "CSSify — The Visual CSS Studio",
     description:
-      "A practical toolkit for frontend developers and students. Visual generators with live preview and code output.",
+      "Design production-ready CSS visually with live interactive preview and instant code generation.",
   },
 };
 
@@ -55,16 +63,9 @@ export default function RootLayout({
       className={`${inter.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-background text-foreground font-sans antialiased">
+      <body className="min-h-screen bg-background text-foreground font-sans antialiased saas-grid-bg">
         <ThemeProvider>
-          <div className="flex min-h-screen">
-            <Sidebar />
-            <main className="flex-1 ml-0 md:ml-64 transition-all duration-300">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                {children}
-              </div>
-            </main>
-          </div>
+          <AppShell>{children}</AppShell>
         </ThemeProvider>
       </body>
     </html>

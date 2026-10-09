@@ -27,7 +27,7 @@ const presets = [
 export default function BorderRadiusPage() {
   const [radius, setRadius] = useState<RadiusState>({ topLeft: 16, topRight: 16, bottomRight: 16, bottomLeft: 16 });
   const [activePreset, setActivePreset] = useState<string | null>("Medium");
-  const [bgColor, setBgColor] = useState("#6366f1");
+  const [bgColor, setBgColor] = useState("#81a6c6");
   const [width, setWidth] = useState(240);
   const [height, setHeight] = useState(240);
 

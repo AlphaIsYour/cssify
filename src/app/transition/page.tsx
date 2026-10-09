@@ -170,7 +170,7 @@ export default function TransitionPage() {
               <div className="relative h-[100px] rounded-lg border border-dashed border-border overflow-hidden preview-checkerboard">
                 <div
                   ref={ballRef}
-                  className="absolute top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-lg"
+                  className="absolute top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-gradient-to-br from-[#81A6C6] to-[#AACDDC] shadow-lg border border-white/40"
                   style={{
                     left: isAnimating ? "calc(100% - 60px)" : "12px",
                     transition: `${property} ${duration}ms ${easing}${delay > 0 ? ` ${delay}ms` : ""}`,

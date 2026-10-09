@@ -20,7 +20,7 @@ const presets = [
   { name: "Subtle", layers: [{ x: 1, y: 1, blur: 2, color: "#000000", opacity: 15 }] },
   { name: "Sharp", layers: [{ x: 2, y: 2, blur: 0, color: "#000000", opacity: 40 }] },
   { name: "Blurry", layers: [{ x: 0, y: 0, blur: 10, color: "#000000", opacity: 30 }] },
-  { name: "Neon", layers: [{ x: 0, y: 0, blur: 10, color: "#6366f1", opacity: 80 }, { x: 0, y: 0, blur: 30, color: "#8b5cf6", opacity: 40 }] },
+  { name: "Neon", layers: [{ x: 0, y: 0, blur: 10, color: "#81a6c6", opacity: 80 }, { x: 0, y: 0, blur: 30, color: "#aacddc", opacity: 50 }] },
   { name: "Emboss", layers: [{ x: -1, y: -1, blur: 0, color: "#ffffff", opacity: 50 }, { x: 1, y: 1, blur: 0, color: "#000000", opacity: 30 }] },
   { name: "Fire", layers: [{ x: 0, y: -2, blur: 4, color: "#ff6b35", opacity: 80 }, { x: 0, y: -6, blur: 12, color: "#ff4500", opacity: 40 }] },
 ];

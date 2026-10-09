@@ -21,7 +21,7 @@ export default function GridPage() {
   const [gap, setGap] = useState(16);
   const [itemCount, setItemCount] = useState(6);
   const [activePreset, setActivePreset] = useState<string | null>("3 Column");
-  const [bgColor, setBgColor] = useState("#8b5cf6");
+  const [bgColor, setBgColor] = useState("#81a6c6");
   const [minHeight, setMinHeight] = useState(80);
 
   const applyPreset = (preset: Preset) => {

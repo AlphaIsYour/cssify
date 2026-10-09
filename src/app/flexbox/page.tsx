@@ -23,7 +23,7 @@ export default function FlexboxPage() {
   const [gap, setGap] = useState(16);
   const [itemCount, setItemCount] = useState(6);
   const [activePreset, setActivePreset] = useState<string | null>("Center All");
-  const [bgColor, setBgColor] = useState("#6366f1");
+  const [bgColor, setBgColor] = useState("#81a6c6");
 
   const applyPreset = (preset: Preset) => {
     const v = preset.values;

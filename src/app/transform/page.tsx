@@ -124,7 +124,7 @@ export default function TransformPage() {
             <h3 className="text-sm font-semibold mb-3">Live Preview</h3>
             <div className="min-h-[350px] rounded-lg border border-dashed border-border flex items-center justify-center preview-checkerboard" style={{ perspective: show3D ? "1000px" : undefined }}>
               <div
-                className="w-[160px] h-[160px] rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg transition-all duration-200"
+                className="w-[160px] h-[160px] rounded-xl bg-gradient-to-br from-[#81A6C6] to-[#4F7B9F] flex items-center justify-center text-white font-bold text-lg shadow-lg transition-all duration-200"
                 style={{ transform: cssValue, transformStyle: show3D ? "preserve-3d" : undefined }}
               >
                 Transform

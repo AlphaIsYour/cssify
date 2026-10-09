@@ -1,41 +1,61 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --card: #ffffff;
-  --card-foreground: #0f172a;
-  --primary: #6366f1;
+  /* Casual Palette: #81A6C6 (Steel Blue), #AACDDC (Soft Sky), #F3E3D0 (Warm Cream), #D2C4B4 (Warm Taupe) */
+  --background: #f3e3d0; /* Warm Cream background */
+  --foreground: #1c2c3c;
+  
+  /* Cards with warm taupe-cream tint from the palette */
+  --card: #f9ede0; /* Warm Cream Card */
+  --card-foreground: #1c2c3c;
+  
+  --primary: #81a6c6; /* Steel Blue */
   --primary-foreground: #ffffff;
-  --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --accent: #f1f5f9;
-  --accent-foreground: #0f172a;
-  --border: #e2e8f0;
-  --ring: #6366f1;
-  --radius: 0.75rem;
+  --primary-hover: #6a92b5;
+  
+  --secondary: #aacddc; /* Soft Sky */
+  --secondary-foreground: #182e3e;
+  
+  --muted: #e8d7c4; /* Muted Taupe Cream */
+  --muted-foreground: #5d6f7e;
+  
+  --accent: #aacddc; /* Soft Sky */
+  --accent-foreground: #182e3e;
+  
+  --border: #d2c4b4; /* Muted Taupe border */
+  --border-translucent: rgba(210, 196, 180, 0.75);
+  --ring: #81a6c6;
+  --radius: 0.75rem; /* Max 12px */
+  
   --success: #22c55e;
   --warning: #f59e0b;
   --error: #ef4444;
 }
 
 .dark {
-  --background: #0f172a;
-  --foreground: #f8fafc;
-  --card: #1e293b;
-  --card-foreground: #f8fafc;
-  --primary: #818cf8;
-  --primary-foreground: #0f172a;
-  --secondary: #1e293b;
-  --secondary-foreground: #f8fafc;
-  --muted: #1e293b;
-  --muted-foreground: #94a3b8;
-  --accent: #1e293b;
-  --accent-foreground: #f8fafc;
-  --border: #334155;
-  --ring: #818cf8;
+  --background: #172330; /* Deep Steel Slate */
+  --foreground: #f3e3d0; /* Warm Cream text */
+  
+  --card: #1f2f40; /* Steel Slate Card */
+  --card-foreground: #f3e3d0;
+  
+  --primary: #81a6c6;
+  --primary-foreground: #101c27;
+  --primary-hover: #99bede;
+  
+  --secondary: #27384a;
+  --secondary-foreground: #aacddc;
+  
+  --muted: #223447;
+  --muted-foreground: #9ab3c6;
+  
+  --accent: #2b3f54;
+  --accent-foreground: #aacddc;
+  
+  --border: #33485d;
+  --border-translucent: rgba(129, 166, 198, 0.25);
+  --ring: #81a6c6;
+  
   --success: #4ade80;
   --warning: #fbbf24;
   --error: #f87171;
@@ -56,9 +76,10 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-border: var(--border);
   --color-ring: var(--ring);
-  --color-success: var(--success);
-  --color-warning: var(--warning);
-  --color-error: var(--error);
+  --color-palette-blue: #81a6c6;
+  --color-palette-sky: #aacddc;
+  --color-palette-cream: #f3e3d0;
+  --color-palette-taupe: #d2c4b4;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
 }
@@ -75,6 +96,84 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Glassmorphism Panel - Blended with #F3E3D0 and #D2C4B4 */
+.glass-panel {
+  background: rgba(249, 237, 224, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px -2px rgba(129, 166, 198, 0.12);
+}
+
+.dark .glass-panel {
+  background: rgba(31, 47, 64, 0.82);
+  border: 1px solid rgba(129, 166, 198, 0.25);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+}
+
+.glass-pill {
+  background: rgba(243, 227, 208, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border);
+}
+
+.dark .glass-pill {
+  background: rgba(32, 47, 64, 0.7);
+  border: 1px solid rgba(170, 205, 220, 0.2);
+}
+
+.glass-glow {
+  position: relative;
+}
+.glass-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, rgba(129, 166, 198, 0.45), rgba(170, 205, 220, 0.3), rgba(210, 196, 180, 0.3));
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Ambient Background utilizing the 4 palette colors */
+.saas-grid-bg {
+  background-color: var(--background);
+  background-image: 
+    radial-gradient(circle at 12% 15%, rgba(129, 166, 198, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 88% 22%, rgba(170, 205, 220, 0.35) 0%, transparent 50%),
+    radial-gradient(circle at 50% 85%, rgba(210, 196, 180, 0.4) 0%, transparent 55%),
+    linear-gradient(to right, rgba(210, 196, 180, 0.2) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(210, 196, 180, 0.2) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+}
+
+.dark .saas-grid-bg {
+  background-color: var(--background);
+  background-image: 
+    radial-gradient(circle at 12% 15%, rgba(129, 166, 198, 0.2) 0%, transparent 45%),
+    radial-gradient(circle at 88% 22%, rgba(170, 205, 220, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 85%, rgba(210, 196, 180, 0.08) 0%, transparent 55%),
+    linear-gradient(to right, rgba(129, 166, 198, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(129, 166, 198, 0.08) 1px, transparent 1px);
+}
+
+/* Gradient Text - Using #81A6C6, #AACDDC */
+.gradient-text {
+  background: linear-gradient(135deg, #4f7495 0%, #81a6c6 50%, #2f4b64 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, #f3e3d0 0%, #aacddc 50%, #81a6c6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -83,13 +182,14 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--muted-foreground);
+  background: var(--border);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--foreground);
+  background: var(--primary);
 }
 
+/* Range input styling with #81A6C6 and #D2C4B4 */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -101,54 +201,47 @@ input[type="range"] {
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: var(--primary);
+  background: #81a6c6;
   cursor: pointer;
-  border: 2px solid var(--background);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
 }
 input[type="range"]::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  background: var(--primary);
+  background: #81a6c6;
   cursor: pointer;
-  border: 2px solid var(--background);
+  border: 2px solid #ffffff;
 }
 
 select {
   -webkit-appearance: none;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2381a6c6' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
   background-position: right 0.5rem center;
   background-repeat: no-repeat;
   background-size: 1.5em 1.5em;
   padding-right: 2.5rem;
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .preview-checkerboard {
   background-image:
-    linear-gradient(45deg, #e2e8f0 25%, transparent 25%),
-    linear-gradient(-45deg, #e2e8f0 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #e2e8f0 75%),
-    linear-gradient(-45deg, transparent 75%, #e2e8f0 75%);
+    linear-gradient(45deg, rgba(210, 196, 180, 0.4) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(210, 196, 180, 0.4) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(210, 196, 180, 0.4) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(210, 196, 180, 0.4) 75%);
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 }
 
 .dark .preview-checkerboard {
   background-image:
-    linear-gradient(45deg, #334155 25%, transparent 25%),
-    linear-gradient(-45deg, #334155 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #334155 75%),
-    linear-gradient(-45deg, transparent 75%, #334155 75%);
+    linear-gradient(45deg, rgba(40, 58, 78, 0.5) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(40, 58, 78, 0.5) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(40, 58, 78, 0.5) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(40, 58, 78, 0.5) 75%);
 }
